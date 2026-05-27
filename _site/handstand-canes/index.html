@@ -100,9 +100,20 @@
         
 
 <div class="grid">
+    <!-- Image Gallery Column -->
     <div class="col">
-        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80" alt="Heavy-Duty Wrist Wraps" class="hero-img" />
+        <!-- Main Image -->
+        <img id="main-product-image" src="/assets/products/wristwraps/wristwraps.jpg" alt="Heavy-Duty Wrist Wraps" class="hero-img" />
+
+        <!-- Thumbnails Grid -->
+        <div style="display: flex; gap: 10px; margin-top: 10px; overflow-x: auto;">
+            
+            <img src="/assets/products/wristwraps/wristwraps.jpg" alt="Product view 1" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #059669;" class="thumbnail-nav" onclick="changeMainImage(this)" />
+            
+        </div>
     </div>
+
+    <!-- Info Column -->
     <div class="col">
         
         <span class="badge">🇨🇦 MADE IN CANADA</span>
@@ -113,7 +124,7 @@
         <h2>Heavy-Duty Wrist Wraps</h2>
         <p>Protect your wrists from the constant extension strain of handstands, tumbling, and acrobatic basing. Designed to provide rigid support without restricting your movement mechanics.</p>
 
-        <div class="price">$29.00 CAD</div>
+        <div class="price">$40.00 CAD</div>
 
         <a href="#" class="cta-btn">Buy Now</a>
     </div>
@@ -130,9 +141,21 @@
     
 </ul>
 
-<!-- This allows you to add any extra custom markdown text unique to a specific page -->
 
 
+
+<!-- Quick interactive script for image swapping -->
+<script>
+    function changeMainImage(thumbnail) {
+        // 1. Swap main image source
+        document.getElementById('main-product-image').src = thumbnail.src;
+
+        // 2. Update border styling to show active state
+        const thumbs = document.querySelectorAll('.thumbnail-nav');
+        thumbs.forEach(t => t.style.borderColor = '#e5e7eb');
+        thumbnail.style.borderColor = '#059669';
+    }
+</script>
     </main>
 
     <footer>

@@ -100,9 +100,32 @@
         
 
 <div class="grid">
+    <!-- Image Gallery Column -->
     <div class="col">
-        <img src="https://images.unsplash.com/photo-1600881333168-2ef49b341f30?auto=format&fit=crop&w=600&q=80" alt="Foldable Acro Wedge" class="hero-img" />
+        <!-- Main Image -->
+        <img id="main-product-image" src="/assets/products/wedge/yellowpink.png" alt="Foldable Acro Wedge" class="hero-img" />
+
+        <!-- Thumbnails Grid -->
+        <div style="display: flex; gap: 10px; margin-top: 10px; overflow-x: auto;">
+            
+            <img src="/assets/products/wedge/yellowpink.png" alt="Product view 1" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #059669;" class="thumbnail-nav" onclick="changeMainImage(this)" />
+            
+            <img src="/assets/products/wedge/yellow.png" alt="Product view 2" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #e5e7eb;" class="thumbnail-nav" onclick="changeMainImage(this)" />
+            
+            <img src="/assets/products/wedge/pink.png" alt="Product view 3" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #e5e7eb;" class="thumbnail-nav" onclick="changeMainImage(this)" />
+            
+            <img src="/assets/products/wedge/yellowpinkopen.png" alt="Product view 4" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #e5e7eb;" class="thumbnail-nav" onclick="changeMainImage(this)" />
+            
+            <img src="/assets/products/wedge/green.webp" alt="Product view 5" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #e5e7eb;" class="thumbnail-nav" onclick="changeMainImage(this)" />
+            
+            <img src="/assets/products/wedge/yellow.webp" alt="Product view 6" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #e5e7eb;" class="thumbnail-nav" onclick="changeMainImage(this)" />
+            
+            <img src="/assets/products/wedge/pink.webp" alt="Product view 7" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #e5e7eb;" class="thumbnail-nav" onclick="changeMainImage(this)" />
+            
+        </div>
     </div>
+
+    <!-- Info Column -->
     <div class="col">
         
         <span class="badge">🇨🇦 MADE IN CANADA</span>
@@ -113,7 +136,7 @@
         <h2>Foldable Acro Wedge</h2>
         <p>Sustain long jams and intense training sessions without the strain. This wedge corrects your pelvic tilt and cradles your lower back so you can base comfortably.</p>
 
-        <div class="price">$119.00 CAD</div>
+        <div class="price">$120.00 CAD</div>
 
         <a href="#" class="cta-btn">Buy Now</a>
     </div>
@@ -130,9 +153,21 @@
     
 </ul>
 
-<!-- This allows you to add any extra custom markdown text unique to a specific page -->
 
 
+
+<!-- Quick interactive script for image swapping -->
+<script>
+    function changeMainImage(thumbnail) {
+        // 1. Swap main image source
+        document.getElementById('main-product-image').src = thumbnail.src;
+
+        // 2. Update border styling to show active state
+        const thumbs = document.querySelectorAll('.thumbnail-nav');
+        thumbs.forEach(t => t.style.borderColor = '#e5e7eb');
+        thumbnail.style.borderColor = '#059669';
+    }
+</script>
     </main>
 
     <footer>

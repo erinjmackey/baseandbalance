@@ -4,9 +4,20 @@ layout: default
 {% assign product = site.data.products[page.product_key] %}
 
 <div class="grid">
+    <!-- Image Gallery Column -->
     <div class="col">
-        <img src="{{ product.image }}" alt="{{ product.title }}" class="hero-img" />
+        <!-- Main Image -->
+        <img id="main-product-image" src="{{ product.images[0] }}" alt="{{ product.title }}" class="hero-img" />
+
+        <!-- Thumbnails Grid -->
+        <div style="display: flex; gap: 10px; margin-top: 10px; overflow-x: auto;">
+            {% for img_url in product.images %}
+            <img src="{{ img_url }}" alt="Product view {{ forloop.index }}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid {% if forloop.first %}#059669{% else %}#e5e7eb{% endif %};" class="thumbnail-nav" onclick="changeMainImage(this)" />
+            {% endfor %}
+        </div>
     </div>
+
+    <!-- Info Column -->
     <div class="col">
         {% for badge in product.badges %}
         <span class="badge">{{ badge }}</span>
@@ -28,5 +39,17 @@ layout: default
     {% endfor %}
 </ul>
 
-<!-- This allows you to add any extra custom markdown text unique to a specific page -->
 {{ content }}
+
+<!-- Quick interactive script for image swapping -->
+<script>
+    function changeMainImage(thumbnail) {
+        // 1. Swap main image source
+        document.getElementById('main-product-image').src = thumbnail.src;
+
+        // 2. Update border styling to show active state
+        const thumbs = document.querySelectorAll('.thumbnail-nav');
+        thumbs.forEach(t => t.style.borderColor = '#e5e7eb');
+        thumbnail.style.borderColor = '#059669';
+    }
+</script>

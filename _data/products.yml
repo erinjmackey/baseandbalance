@@ -1,7 +1,14 @@
 acro-wedge:
   title: "Foldable Acro Wedge"
-  price: "$119.00 CAD"
-  image: "https://images.unsplash.com/photo-1600881333168-2ef49b341f30?auto=format&fit=crop&w=600&q=80"
+  price: "$120.00 CAD"
+  images: 
+    - "/assets/products/wedge/yellowpink.png"
+    - "/assets/products/wedge/yellow.png"
+    - "/assets/products/wedge/pink.png"
+    - "/assets/products/wedge/yellowpinkopen.png"
+    - "/assets/products/wedge/green.webp"
+    - "/assets/products/wedge/yellow.webp"
+    - "/assets/products/wedge/pink.webp"
   badges:
     - "🇨🇦 MADE IN CANADA"
     - "🧳 FOLDABLE"
@@ -14,8 +21,9 @@ acro-wedge:
 
 wrist-wraps:
   title: "Heavy-Duty Wrist Wraps"
-  price: "$29.00 CAD"
-  image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80"
+  price: "$40.00 CAD"
+  images: 
+    - "/assets/products/wristwraps/wristwraps.jpg"
   badges:
     - "🇨🇦 MADE IN CANADA"
     - "💪 EXTRA SUPPORT"
@@ -28,8 +36,9 @@ wrist-wraps:
 
 handstand-canes:
   title: "Pro Handstand Canes"
-  price: "$189.00 CAD"
-  image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80"
+  price: "$210.00 CAD"
+  images: 
+    - "/assets/products/canes/canes.jpg"
   badges:
     - "🇨🇦 MADE IN CANADA"
     - "🪵 PREMIUM WOOD"

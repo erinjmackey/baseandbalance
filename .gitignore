@@ -12,3 +12,4 @@ _site/
 .bundle/
 vendor/bundle/
 start_jekyll.bat
+/_site

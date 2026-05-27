@@ -1,0 +1,41 @@
+acro-wedge:
+  title: "Foldable Acro Wedge"
+  price: "$119.00 CAD"
+  image: "https://images.unsplash.com/photo-1600881333168-2ef49b341f30?auto=format&fit=crop&w=600&q=80"
+  badges:
+    - "🇨🇦 MADE IN CANADA"
+    - "🧳 FOLDABLE"
+  description: "Sustain long jams and intense training sessions without the strain. This wedge corrects your pelvic tilt and cradles your lower back so you can base comfortably."
+  stripe_url: "#" # Replace with your actual Stripe checkout link
+  features:
+    - "Smart Foldable Design: Packs completely flat in seconds to slide easily into your gear bag or travel suitcase."
+    - "Neoprene Cover: High-performance, sweat-resistant, and weather-proof outer skin that prevents slipping on gym floors or grass."
+    - "Dual-Layer Foam Core: High-density base layer protects against hard surfaces while a softer top layer cushions your spine."
+
+wrist-wraps:
+  title: "Heavy-Duty Wrist Wraps"
+  price: "$29.00 CAD"
+  image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80"
+  badges:
+    - "🇨🇦 MADE IN CANADA"
+    - "💪 EXTRA SUPPORT"
+  description: "Protect your wrists from the constant extension strain of handstands, tumbling, and acrobatic basing. Designed to provide rigid support without restricting your movement mechanics."
+  stripe_url: "#"
+  features:
+    - "Customizable Tension: Thick, premium cotton-elastic blend with a heavy-duty hook-and-loop system allows you to adjust the tightness exactly how you like it between sets."
+    - "Ergonomic Thumb Loop: Ensures easy wrapping and keeps the wraps securely anchored so they won't slip mid-flow."
+    - "Sweat-Absorbing & Washable: Breathable fabric designed for intense workouts. Just toss them in the wash after a heavy training week."
+
+handstand-canes:
+  title: "Pro Handstand Canes"
+  price: "$189.00 CAD"
+  image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80"
+  badges:
+    - "🇨🇦 MADE IN CANADA"
+    - "🪵 PREMIUM WOOD"
+  description: "Take your handbalancing to the next level. Canes relieve wrist stress by providing a neutral grip while giving you the height needed to master advanced shapes and transitions."
+  stripe_url: "#"
+  features:
+    - "Engineered Stability: A wide, heavy-duty base platform constructed to completely eliminate wobbling or tipping on flat surfaces."
+    - "Premium Hardwood Blocks: Angled blocks crafted out of Canadian maple or birch, sanded smooth for the perfect grip texture that holds chalk beautifully."
+    - "Removable Stainless Steel Canes: The steel rods easily unscrew from the base, making the entire setup flat and highly packable for traveling artists."

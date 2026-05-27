@@ -1,0 +1,13 @@
+title: Base and Balance
+email: baseandbalanceacro@gmail.com
+description: Premium, foldable neoprene acro wedges proudly made in Canada.
+logo: /assets/logo.png
+
+theme: null # We will use a custom minimal layout
+
+permalink: /:title/
+
+collections:
+  products:
+    output: true
+    permalink: /products/:name/

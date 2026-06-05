@@ -1,55 +1,67 @@
 ---
 layout: default
 ---
-{% assign product = site.data.products[page.product_key] %}
-
-<div class="grid">
-    <!-- Image Gallery Column -->
-    <div class="col">
-        <!-- Main Image -->
-        <img id="main-product-image" src="{{ product.images[0] }}" alt="{{ product.title }}" class="hero-img" />
-
-        <!-- Thumbnails Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 my-10">
+    <!-- Image Gallery -->
+    <div>
+        <img id="main-product-image" src="{{ page.images[0] }}" alt="{{ page.title }}" class="w-full h-auto rounded-lg shadow-md" />
+        {% if page.images.size > 1 %}
         <div style="display: flex; gap: 10px; margin-top: 10px; overflow-x: auto;">
-            {% for img_url in product.images %}
-            <img src="{{ img_url }}" alt="Product view {{ forloop.index }}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid {% if forloop.first %}#059669{% else %}#e5e7eb{% endif %};" class="thumbnail-nav" onclick="changeMainImage(this)" />
+            {% for img_url in page.images %}
+            <img src="{{ img_url }}" alt="Product view {{ forloop.index }}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid {% if forloop.first %}#059669{% else %}#e5e7eb{% endif %};" class="thumbnail-nav" onclick="document.getElementById('main-product-image').src=this.src" />
             {% endfor %}
         </div>
+        {% endif %}
     </div>
 
-    <!-- Info Column -->
-    <div class="col">
-        {% for badge in product.badges %}
-        <span class="badge">{{ badge }}</span>
-        {% endfor %}
+    <!-- Product Details -->
+    <div>
+        <div class="flex gap-2 mb-2">
+            {% for badge in page.badges %}
+            <span class="bg-blue-50 text-blue-700 text-xs font-bold px-2.5 py-1 rounded">{{ badge }}</span>
+            {% endfor %}
+        </div>
 
-        <h2>{{ product.title }}</h2>
-        <p>{{ product.description }}</p>
+        <h2 class="text-3xl font-bold mb-2">{{ page.title }}</h2>
+        <p class="text-gray-600 mb-4">{{ page.description }}</p>
+        <div class="text-2xl font-bold text-gray-900 mb-6">{{ page.price }}</div>
 
-        <div class="price">{{ product.price }}</div>
+        <!-- Color Selector Swatches -->
+        {% if page.colors %}
+        <div class="mb-6">
+            <span class="block text-sm font-medium text-gray-700 mb-2">Color: <span id="color-name" class="font-bold text-emerald-600">{{ page.colors[0].name }}</span></span>
+            <div class="flex gap-3">
+                {% for color in page.colors %}
+                <button class="color-picker focus:outline-none" style="background-color: {{ color.hex }}; border-color: {% if forloop.first %}var(--secondary-color){% else %}#464646{% endif %};" onclick="selectColor('{{ color.name }}', '{{ color.stripe_url }}', this)">
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
 
-        <a href="{{ product.stripe_url }}" class="cta-btn">Buy Now</a>
+        <!-- Stripe Buy Button -->
+        <a id="buy-button" href="{{ page.colors[0].stripe_url | default: '#' }}" target="_blank" class="cta-btn">
+            Buy Now
+        </a>
     </div>
 </div>
 
-<h3>Features</h3>
-<ul>
-    {% for feature in product.features %}
-    <li>{{ feature }}</li>
-    {% endfor %}
-</ul>
+<div class="border-t border-gray-200 pt-8 mt-10">
+    <h3 class="text-xl font-bold mb-4">Product Features</h3>
+    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+        {% for feature in page.features %}
+        <li>{{ feature }}</li>
+        {% endfor %}
+    </ul>
+</div>
 
-{{ content }}
-
-<!-- Quick interactive script for image swapping -->
 <script>
-    function changeMainImage(thumbnail) {
-        // 1. Swap main image source
-        document.getElementById('main-product-image').src = thumbnail.src;
+    function selectColor(name, url, element) {
+        document.getElementById('color-name').innerText = name;
+        document.getElementById('buy-button').href = url;
 
-        // 2. Update border styling to show active state
-        const thumbs = document.querySelectorAll('.thumbnail-nav');
-        thumbs.forEach(t => t.style.borderColor = '#e5e7eb');
-        thumbnail.style.borderColor = '#059669';
+        // Reset all swatch borders, highlight selected one
+        element.parentElement.querySelectorAll('button').forEach(btn => btn.style.borderColor = '#464646');
+        element.style.borderColor = 'var(--secondary-color)';
     }
 </script>

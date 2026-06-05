@@ -10,4 +10,4 @@ permalink: /:title/
 collections:
   products:
     output: true
-    permalink: /products/:name/
+    permalink: /products/:path/
